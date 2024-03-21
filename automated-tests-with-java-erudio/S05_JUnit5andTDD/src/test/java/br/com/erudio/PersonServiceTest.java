@@ -82,7 +82,7 @@ public class PersonServiceTest {
         var expectedMessage = "The Person e-Mail is null or empty!";
         
         // When / Act & Then / Assert
-        IllegalArgumentException exception = assertThrows(
+        IllegalArgumentException exception = assertThrows( 
             IllegalArgumentException.class,
             () -> service.createPerson(person),
             () -> "Empty e-Mail should have cause an IllegalArgumentException!"
@@ -91,7 +91,7 @@ public class PersonServiceTest {
         // Then / Assert
         assertEquals(
             expectedMessage,
-            exception.getMessage(),
+            exception.getMessage(), // Validando o retorno da mensagem da exceção
             () -> "Exception error message is incorrect!");
     }
 }

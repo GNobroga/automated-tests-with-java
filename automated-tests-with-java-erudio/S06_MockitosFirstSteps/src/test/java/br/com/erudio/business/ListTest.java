@@ -13,8 +13,8 @@ public class ListTest {
     void testMockingList_When_SizeIsCalled_ShouldReturn10() {
         
         // Given / Arrange
-        List<?> list = mock(List.class);
-        when(list.size()).thenReturn(10);
+        List<?> list = mock(List.class); // Mockando uma lista
+        when(list.size()).thenReturn(10); // Quando for chamado vai retornar 10
         
         // When / Act & Then / Assert
         assertEquals(10, list.size());
@@ -26,8 +26,8 @@ public class ListTest {
     void testMockingList_When_SizeIsCalled_ShouldReturnMultipleValues() {
         
         // Given / Arrange
-        List<?> list = mock(List.class);
-        when(list.size()).thenReturn(10).thenReturn(20);
+        List<?> list = mock(List.class); // Mockando uma lista
+        when(list.size()).thenReturn(10).thenReturn(20); // Multiplo retorno, a primeira execução é 10 depois é 20.
         
         // When / Act & Then / Assert
         assertEquals(10, list.size());
@@ -44,7 +44,7 @@ public class ListTest {
         
         // When / Act & Then / Assert
         assertEquals("Erudio", list.get(0));
-        assertNull(list.get(1));
+        assertNull(list.get(1)); // A posição 1 não foi mockada.
     }
     
     @Test
@@ -55,12 +55,13 @@ public class ListTest {
         
         // If you are using argument matchers, all arguments
         // have to be provided by matchers.
-        when(list.get(anyInt())).thenReturn("Erudio");
+        when(list.get(anyInt())).thenReturn("Erudio"); // Pra qualquer valor inteiro el vai retornar Erudio, isso se chama casador de argumentos.
         
         // When / Act & Then / Assert
         assertEquals("Erudio", list.get(anyInt()));
-        assertEquals("Erudio", list.get(anyInt()));
+        assertEquals("Erudio", list.get(100));
     }
+
     
     @Test
     void testMockingList_When_ThrowsAnException() {
@@ -70,7 +71,7 @@ public class ListTest {
         
         // If you are using argument matchers, all arguments
         // have to be provided by matchers.
-        when(list.get(anyInt())).thenThrow(new RuntimeException("Foo Bar!!"));
+        when(list.get(anyInt())).thenThrow(new RuntimeException("Foo Bar!!")); // Mockando uma execeção
         
         // When / Act & Then / Assert
         assertThrows(RuntimeException.class,

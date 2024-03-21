@@ -44,7 +44,7 @@ class CourseBusinessMockTest {
         
         // Given / Arrange
         when(mockService.retrieveCourses("Leandro"))
-            .thenReturn(courses);
+            .thenReturn(courses); // Chamando o método retrieveCourses e dizendo que ele irá retornar courses quando for chamado
             
         // When / Act
         var filteredCourses =
