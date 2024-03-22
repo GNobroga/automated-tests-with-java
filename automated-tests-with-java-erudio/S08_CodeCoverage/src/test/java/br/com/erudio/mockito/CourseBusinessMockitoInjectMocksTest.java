@@ -25,17 +25,17 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import br.com.erudio.business.CourseBusiness;
 import br.com.erudio.service.CourseService;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class) 
 class CourseBusinessMockitoInjectMocksTest {
 
-    @Mock
+    @Mock  // Alternativa ao mock(CourseService.class)
     CourseService mockService;
     
-    @InjectMocks
+    @InjectMocks // Permite injetar os mocks da anotação @Mock
     CourseBusiness business;
     // business = new CourseBusiness(mockService);
     
-    @Captor
+    @Captor // Instancia o ArgumentCaptor
     ArgumentCaptor<String> argumentCaptor;
     
     List<String> courses;

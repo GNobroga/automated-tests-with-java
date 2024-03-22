@@ -31,6 +31,11 @@ public class SpyTest {
     
     @Test
     void testV2() {
+
+        /**
+         * Um objeto spy é uma instância real de um objeto no qual você pode rastrear chamadas de métodos reais, enquanto ainda pode especificar comportamentos para alguns métodos, se necessário.
+Ao contrário de um mock, um spy mantém o estado interno do objeto real. Os métodos reais são executados, a menos que sejam especificamente substituídos por comportamentos simulados.
+         */
         // Given / Arrange
         List<String> spyArrayList = spy(ArrayList.class);
         

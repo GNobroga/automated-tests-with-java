@@ -10,13 +10,14 @@ import org.mockito.MockedStatic;
 
 class MyUtilsTest {
 
-    @Test
+    @Test // Mockando método static
     void shouldMockStaticMethodWithParams() {
         try(MockedStatic<MyUtils> mockedStatic = mockStatic(MyUtils.class)){
             mockedStatic.when(
                 () -> MyUtils.getWelcomeMessage(
-                    eq("Erudio"),
-                    anyBoolean())).thenReturn("Howdy Erudio!");
+                    eq("Erudio"), // primeiro parametro
+                    anyBoolean() // segundo parametro
+                    )).thenReturn("Howdy Erudio!");
             
             String result = MyUtils.getWelcomeMessage("Erudio", false);
             
