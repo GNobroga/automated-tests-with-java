@@ -3,6 +3,7 @@ package br.com.gabriel.test.infrastructure.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ import br.com.gabriel.test.usecases.IDeletePessoaByIdUseCase;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/pessoas")
+@RequestMapping(value = "/api/v1/pessoas", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class PessoaController {
 
@@ -47,6 +48,7 @@ public class PessoaController {
     @PostMapping
     public ResponseEntity<Pessoa> post(@RequestBody CriarPessoaRequestDTO criarPessoaRequestDTO) throws DomainInvalidException {
         var result = criarPessoaUseCase.executar(pessoaMapper.toPessoa(criarPessoaRequestDTO));
+        if (result == null) return null;
         var urlBuilder = ServletUriComponentsBuilder.fromCurrentRequest();
         urlBuilder.pathSegment("{id}");
         var uriComponent = urlBuilder.buildAndExpand(new HashMap<String, Object>() {
