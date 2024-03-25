@@ -6,12 +6,15 @@ import org.springframework.context.annotation.Configuration;
 import br.com.gabriel.test.application.usecaseImpl.BuscarPessoaUseCase;
 import br.com.gabriel.test.application.usecaseImpl.BuscarPessoasUseCase;
 import br.com.gabriel.test.application.usecaseImpl.CriarPessoaUseCase;
+import br.com.gabriel.test.application.usecaseImpl.DeletarPessoaByIdUseCase;
 import br.com.gabriel.test.gateway.IBuscarPessoaGateway;
 import br.com.gabriel.test.gateway.IBuscarPessoasGateway;
 import br.com.gabriel.test.gateway.ICriarPessoaGateway;
+import br.com.gabriel.test.gateway.IDeletarPessoaByIdGateway;
 import br.com.gabriel.test.usecases.IBuscarPessoaUseCase;
 import br.com.gabriel.test.usecases.IBuscarPessoasUseCase;
 import br.com.gabriel.test.usecases.ICriarPessoaUseCase;
+import br.com.gabriel.test.usecases.IDeletePessoaByIdUseCase;
 
 @Configuration
 public class PessoaConfig {
@@ -31,4 +34,9 @@ public class PessoaConfig {
     IBuscarPessoaUseCase buscarPessoaUseCase(IBuscarPessoaGateway buscarPessoaGateway) {
         return new BuscarPessoaUseCase(buscarPessoaGateway);
     }
+
+    @Bean
+    IDeletePessoaByIdUseCase deletePessoaByIdUseCase(IDeletarPessoaByIdGateway deletarPessoaByIdGateway) {
+        return new DeletarPessoaByIdUseCase(deletarPessoaByIdGateway);
+    } 
 }

@@ -2,7 +2,6 @@ package br.com.gabriel.test.application.gatewayImpl;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.support.ExampleMatcherAccessor;
 import org.springframework.stereotype.Service;
 
 import br.com.gabriel.test.application.mapper.PessoaMapper;
